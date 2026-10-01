@@ -1,0 +1,13 @@
+{ "compileOnSave": false,
+  "compilerOptions": { "strict": true, "target": "ES2022", "module": "preserve", "moduleResolution": "bundler", "experimentalDecorators": true, "skipLibCheck": true, "isolatedModules": true, "noImplicitOverride": true },
+  "files": ["src/main.ts"], "include": ["src/**/*.ts"],
+  "angularCompilerOptions": {
+    "extendedDiagnostics": {
+      "checks": {
+        "nullishCoalescingNotNullable": "suppress",
+        "optionalChainNotNullable": "suppress"
+      }
+    },
+    "strictTemplates": true
+  }
+}

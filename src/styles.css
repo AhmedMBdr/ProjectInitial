@@ -1,0 +1,11 @@
+:root { --navy:#0b1b3a; --navy-2:#13294f; --blue:#2563eb; --bg:#f3f6fb; --ink:#14213d; --muted:#64748b; --ok:#16a34a; --warn:#f59e0b; --bad:#e11d48; --r:14px; }
+body { font-family:'Plus Jakarta Sans',system-ui,sans-serif; background:var(--bg); color:var(--ink); }
+.card-x { background:#fff; border:1px solid #e6ecf5; border-radius:var(--r); box-shadow:0 1px 2px rgba(15,35,80,.05); padding:1.25rem; }
+.btn-primary { --bs-btn-bg:var(--blue); --bs-btn-border-color:var(--blue); font-weight:600; }
+.muted { color:var(--muted); font-size:.875rem; }
+.code { background:var(--navy); color:#dbe7ff; border-radius:10px; padding:1rem; font:.85rem/1.6 'JetBrains Mono',monospace; white-space:pre; overflow-x:auto; margin:0; }
+.icon-tile { width:44px; height:44px; border-radius:12px; display:grid; place-items:center; font-size:1.3rem; flex:none; }
+.tone-blue{background:#e0eaff;color:#2563eb} .tone-green{background:#dcfce7;color:#16a34a} .tone-purple{background:#ede9fe;color:#7c3aed} .tone-amber{background:#fef3c7;color:#d97706} .tone-red{background:#ffe4e6;color:#e11d48}
+.diff-Easy{background:#dcfce7;color:#15803d} .diff-Medium{background:#fef3c7;color:#b45309} .diff-Hard{background:#ffe4e6;color:#be123c}
+:focus-visible { outline:3px solid #93b4ff; outline-offset:2px; }
+@media (prefers-reduced-motion:reduce){ *{transition:none!important;animation:none!important} }
