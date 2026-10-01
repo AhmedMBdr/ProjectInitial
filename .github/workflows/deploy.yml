@@ -23,11 +23,11 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - run: npx ng build ProjectInitial /baccacode-web/
-      - run: cp dist/baccacode-web/browser/index.html dist/baccacode-web/browser/404.html
+      - run: npx ng build --base-href /ProjectInitial/
+      - run: cp dist/ProjectInitial/browser/index.html dist/ProjectInitial/browser/404.html
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist/baccacode-web/browser
+          path: dist/ProjectInitial/browser
 
   deploy:
     needs: build
