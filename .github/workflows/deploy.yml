@@ -1,4 +1,6 @@
+```yaml
 name: Deploy to GitHub Pages
+
 on:
   push:
     branches: [main]
@@ -16,25 +18,41 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
         with:
-          node-version: 22
+          node-version: 24.15.0
           cache: npm
-      - run: npm ci
-      - run: npx ng build --base-href /ProjectInitial/
-      - run: cp dist/ProjectInitial/browser/index.html dist/ProjectInitial/browser/404.html
-      - uses: actions/upload-pages-artifact@v3
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Angular application
+        run: npx ng build --base-href /ProjectInitial/
+
+      - name: Add 404 fallback for Angular routing
+        run: cp dist/baccacode-web/browser/index.html dist/baccacode-web/browser/404.html
+
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v4
         with:
-          path: dist/ProjectInitial/browser
+          path: dist/baccacode-web/browser
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
+```
